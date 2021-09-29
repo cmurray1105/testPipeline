@@ -9,13 +9,13 @@ pipeline {
         }
         stage('connect') {
             steps{
-            sh 'node test.js'
+            sh 'node connection.js'
 
         }
         }
         stage('validate') {
  steps{
-            sh 'node test.js'
+            sh 'node validation.js'
             // console.log('hello world')
         }
         }
