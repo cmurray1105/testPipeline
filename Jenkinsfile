@@ -13,6 +13,18 @@ pipeline {
 
         }
         }
+            stage('upload files') {
+ steps{
+            sh 'node connection.js'
+            // console.log('hello world')
+        }
+        }
+            stage('run powershell script') {
+ steps{
+            sh 'node validation.js'
+            // console.log('hello world')
+        }
+        }
         stage('validate') {
  steps{
             sh 'node validation.js'
