@@ -9,7 +9,7 @@ pipeline {
         }
         stage('connect') {
             steps{
-            sh "console.log('hello world')"
+            sh 'console.log("hello world")'
 
         }
         }
