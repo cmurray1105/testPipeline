@@ -14,7 +14,10 @@ pipeline {
         }
         }
         stage('validate') {
-
+ steps{
+            sh "console.log('hello world')"
+            // console.log('hello world')
+        }
         }
     }
 }
