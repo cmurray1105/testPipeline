@@ -15,7 +15,7 @@ pipeline {
         }
         stage('validate') {
  steps{
-            sh "console.log('hello world')"
+            sh 'node test.js'
             // console.log('hello world')
         }
         }
