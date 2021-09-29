@@ -10,7 +10,7 @@ pipeline {
         stage('connect') {
             steps{
             sh "console.log('hello world')"
-            // console.log('hello world')
+
         }
         }
         stage('validate') {
