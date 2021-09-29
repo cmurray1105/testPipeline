@@ -12,6 +12,7 @@ pipeline {
             sh "console.log('hello world')"
             console.log('hello world')
         }
+        }
         stage('validate') {
 
         }
