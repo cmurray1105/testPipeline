@@ -1,44 +1,45 @@
 pipeline {
-    agent { docker { image 'node:14-alpine' } }
-    node("Mr-Slave") {
-    timeout(unit: 'SECONDS', time: 5) {
-        stage("One"){
+    agent {none}
+
+    stages {
+        stage('build') {
+            agent { docker { image 'node:14-alpine' } }
+            steps {
+                sh 'npm --version'
+                sh 'node connection.js'
+            }
+        }
+        stage('connect') {
+            steps{
+              node("Mr-Slave") {
+                timeout(unit: 'SECONDS', time: 5) {
+                stage("One"){
             sleep 10
             echo 'hello'
         }
     }
 }
-    stages {
-        stage('build') {
-            steps {
-                sh 'npm --version'
-
-            }
-        }
-        stage('connect') {
-            steps{
-            sh 'node connection.js'
 
         }
         }
-            stage('upload files') {
- steps{
-            sh 'node connection.js'
-            // console.log('hello world')
-        }
-        }
-            stage('run powershell script') {
- steps{
-            sh 'node validation.js'
-            // console.log('hello world')
-        }
-        }
-        stage('validate') {
- steps{
-            sh 'node validation.js'
-            // console.log('hello world')
-        }
-        }
+//             stage('upload files') {
+//  steps{
+//             // sh 'node connection.js'
+//             // console.log('hello world')
+//         }
+//         }
+//             stage('run powershell script') {
+//  steps{
+//             // sh 'node validation.js'
+//             // console.log('hello world')
+//         }
+//         }
+//         stage('validate') {
+//  steps{
+//             sh 'node validation.js'
+//             // console.log('hello world')
+//         }
+//         }
     }
         post {
         always {
