@@ -1,5 +1,13 @@
 pipeline {
     agent { docker { image 'node:14-alpine' } }
+    node("Mr-Slave") {
+    timeout(unit: 'SECONDS', time: 5) {
+        stage("One"){
+            sleep 10
+            echo 'hello'
+        }
+    }
+}
     stages {
         stage('build') {
             steps {
